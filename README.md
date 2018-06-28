@@ -31,7 +31,7 @@ exports.templateProvider = new TemplateProvider()
 When writing migrations that use `flock-mongo` the `QueryInterface#query`
 method accepts a function that will be called with a `Mongo.Db` instance.
 
-See: http://mongodb.github.io/node-mongodb-native/3.1/api/Db.html#executeDbAdminCommand
+See: http://mongodb.github.io/node-mongodb-native/3.1/api/Db.html
 
 Example:
 ```js
