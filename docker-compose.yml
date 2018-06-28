@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  mongo:
+    # https://hub.docker.com/_/mongo/
+    image: mongo
+    restart: always
+    command:
+      --smallfiles
+    ports:
+      # HOST:CONTAINER
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: passWORD!
