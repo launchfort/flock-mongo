@@ -1,6 +1,6 @@
 {
   "name": "@gradealabs/flock-mongo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Flock plugin for Mongodb",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -27,6 +27,6 @@
     "typescript": "2.9.2"
   },
   "dependencies": {
-    "mongodb": "3.0.10"
+    "mongodb": "3.1.11"
   }
 }

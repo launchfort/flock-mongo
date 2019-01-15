@@ -29,7 +29,8 @@ export class DataAccessProvider implements Flock.DataAccessProvider {
   }
 
   async provide () {
-    const client = await MongoClient.connect(this.connectionString)
+    // @ts-ignore
+    const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true })
     const uri = new ConnectionUri(this.connectionString)
     const databaseName = uri.db || 'admin'
     const db = client.db(databaseName)
