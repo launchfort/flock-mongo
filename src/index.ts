@@ -2,6 +2,7 @@ import * as Path from 'path'
 import { URL } from 'url'
 import { MongoClient, Db, Cursor } from 'mongodb'
 import * as Flock from '@gradealabs/flock'
+import { ConnectionUri } from './connection-uri'
 
 export class TemplateProvider implements Flock.TemplateProvider {
   readonly migrationTypes = [ 'create-collection', 'alter-collection', 'other' ]
@@ -29,8 +30,8 @@ export class DataAccessProvider implements Flock.DataAccessProvider {
 
   async provide () {
     const client = await MongoClient.connect(this.connectionString)
-    const connectionUrl = new URL(this.connectionString)
-    const databaseName = connectionUrl.pathname.slice(1) || 'admin'
+    const uri = new ConnectionUri(this.connectionString)
+    const databaseName = uri.db || 'admin'
     const db = client.db(databaseName)
     return new MongoDataAccess(client, this.migrationTableName, db)
   }
