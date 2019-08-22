@@ -5,15 +5,15 @@ Flock Mongo is a Flock plugin for Mongodb.
 ## Install
 
 ```
-npm install gradealabs/flock-mongo
+npm install launchfort/flock-mongo
 ```
 
 ## Usage
 
 ```js
 // .flockrc.js
-const { DefaultMigrator, NodeModuleMigrationProvider } = require('@gradealabs/flock')
-const { DataAccessProvider, TemplateProvider } = require('@gradealabs/flock-mongo')
+const { DefaultMigrator, NodeModuleMigrationProvider } = require('@launchfort/flock')
+const { DataAccessProvider, TemplateProvider } = require('@launchfort/flock-mongo')
 
 const migrationDir = 'migrations'
 const migrationTableName = 'migration'

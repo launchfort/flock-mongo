@@ -1,7 +1,7 @@
 import * as Path from 'path'
 import { URL } from 'url'
 import { MongoClient, Db, Cursor } from 'mongodb'
-import * as Flock from '@gradealabs/flock'
+import * as Flock from '@launchfort/flock'
 import { ConnectionUri } from './connection-uri'
 
 export class TemplateProvider implements Flock.TemplateProvider {
