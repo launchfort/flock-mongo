@@ -30,7 +30,14 @@ export class DataAccessProvider implements Flock.DataAccessProvider {
 
   async provide () {
     // @ts-ignore
-    const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true })
+    const client = await MongoClient.connect(this.connectionString, {
+      useNewUrlParser: true,
+      // (node:72920) DeprecationWarning: current Server Discovery and Monitoring
+      // engine is deprecated, and will be removed in a future version. To use the
+      // new Server Discover and Monitoring engine, pass option
+      // { useUnifiedTopology: true } to MongoClient.connect.
+      useUnifiedTopology: true
+    })
     const uri = new ConnectionUri(this.connectionString)
     const databaseName = uri.db || 'admin'
     const db = client.db(databaseName)

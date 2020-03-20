@@ -1,6 +1,6 @@
 {
   "name": "@launchfort/flock-mongo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flock plugin for Mongodb",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -27,6 +27,6 @@
     "typescript": "3.5.3"
   },
   "dependencies": {
-    "mongodb": "3.3.0"
+    "mongodb": "3.5.0"
   }
 }

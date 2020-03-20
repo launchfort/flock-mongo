@@ -4,8 +4,6 @@ services:
     # https://hub.docker.com/_/mongo/
     image: mongo
     restart: always
-    command:
-      --smallfiles
     ports:
       # HOST:CONTAINER
       - '27017:27017'

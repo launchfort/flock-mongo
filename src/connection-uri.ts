@@ -1,6 +1,7 @@
 import { URL } from 'url'
 
-const PATTERN = /^mongodb:\/\/([^@:]+:[^@]+@)?([^@?]+?(?::\d+)?(?:,[^@?]+?(?::\d+)?)*)(\/[^?]+)?(\?.*)?$/
+// See: https://docs.mongodb.com/manual/reference/connection-string/
+const PATTERN = /^mongodb(?:\+srv)?:\/\/([^@:]+:[^@]+@)?([^@?/]+?(?::\d+)?(?:,[^@?/]+?(?::\d+)?)*)(\/[^?]*)?(\?.*)?$/
 
 export class ConnectionUri {
   public readonly user: string
@@ -28,7 +29,11 @@ export class ConnectionUri {
     this.password = m[1] ? m[1].split(':')[1].slice(0, -1) : ''
     this.hosts = m[2].split(',') || []
     this.db = m[3] ? m[3].slice(1) : ''
-    this.options = m[4] ? new URL('http://example.com' + m[4]).searchParams : {}
+    this.options = m[4] ?
+      [ ...new URL('http://example.com' + m[4]).searchParams.entries() ].reduce((opts, [key, value]) => {
+        return { ...opts, [key]: value }
+      }, {})
+      : {}
   }
 
   public toString () {
